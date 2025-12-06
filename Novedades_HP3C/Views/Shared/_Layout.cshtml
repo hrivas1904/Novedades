@@ -10,56 +10,84 @@
     <link rel="stylesheet" href="~/Novedades_HP3C.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/index.css" />
     <link rel="stylesheet" href="~/css/personal.css" />
+    <script src="~/js/layout-moderno.js"></script>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-light navbar-modern">
-            <div class="container-fluid d-flex align-items-center justify-content-between">
-
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="~/img/logo_min.png" style="height:50px" />
+    <div class="app-layout-vertical">
+        <header class="topbar-vertical">
+            <button id="btnToggleSidebar" class="btn-hamburger">
+                <i class="bi bi-list"></i>
+            </button>
+            <div class="topbar-left">
+                <a asp-controller="Home" asp-action="Index">
+                    <img src="~/img/logo_min.png" class="topbar-logo" />
                 </a>
+            </div>
+            <div class="topbar-right dropdown">
+                <a href="#" class="user-icon dropdown-toggle"
+                   id="userDropdown"
+                   role="button"
+                   data-bs-toggle="dropdown"
+                   aria-expanded="false">
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
-                    <ul class="navbar-nav gap-2">
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Novedades" asp-action="Novedades">Novedades</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Personal" asp-action="Personal">Personal</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Index">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Ajustes" asp-action="Ajustes">Ajustes</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <a href="#" class="user-icon">
                     <i class="bi bi-person-fill"></i>
                 </a>
 
+                <ul class="dropdown-menu dropdown-menu-end shadow user-dropdown"
+                    aria-labelledby="userDropdown">
+                    <li>
+                        <a class="dropdown-item" asp-controller="Usuarios" asp-action="Perfil"><i class="bi bi-person me-2"></i> Perfil</a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <a class="dropdown-item text-danger" asp-controller="Acceso" asp-action="CerrarSesion">
+                            <i class="bi bi-box-arrow-right me-2"></i> Cerrar sesión
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </nav>
 
-    </header>
-    <div class="container-fluid">
-        <main role="main" class="p-3">
-            @RenderBody()
-        </main>
-    </div>
+        </header>
 
-    <footer class="border-top footer text-muted text-center">
-        <div class="container">
-            &copy; 2025 - Novedades - Hospital Privado Tres Cerritos
+        <div class="main-wrapper-vertical">
+            <aside id="sidebarVertical" class="sidebar-vertical collapsed">
+                
+                <ul class="sidebar-menu-vertical">
+                    <li>
+                        <a asp-controller="Novedades" asp-action="Novedades">
+                            <i class="bi bi-megaphone"></i>
+                            <span>Novedades</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Personal" asp-action="Personal">
+                            <i class="bi bi-people-fill"></i>
+                            <span>Personal</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Home" asp-action="Index">
+                            <i class="bi bi-speedometer2"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Ajustes" asp-action="Ajustes">
+                            <i class="bi bi-gear-fill"></i>
+                            <span>Ajustes</span>
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+
+            <main class="content-vertical p-4">
+                @RenderBody()
+            </main>
         </div>
-    </footer>
+
+    </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

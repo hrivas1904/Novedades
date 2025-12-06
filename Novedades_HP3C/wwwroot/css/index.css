@@ -1,88 +1,134 @@
-﻿.pill-heading {
+﻿html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.pill-heading {
     display: inline-block;
     padding: 0.4rem 1.2rem;
-    background-color: #0d6efd; /* azul tipo primary */
+    background-color: #0d6efd;
     color: #ffffff;
-    border-radius: 999px; /* forma de píldora */
-    font-size: 1.25rem; /* tamaño típico de h2 reducido */
+    border-radius: 999px;
+    font-size: 1.25rem;
     font-weight: 600;
     letter-spacing: 0.03em;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
 
-.navbar-modern {
-    backdrop-filter: blur(10px);
-    background-color: rgba(255, 255, 255, 0.85) !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-    padding: 0.6rem 1rem;
+
+.app-layout-vertical {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #f4f6fb;
 }
 
-    .navbar-modern .navbar-brand img {
-        transition: transform 0.2s ease;
+
+.topbar-vertical {
+    height: 70px;
+    background: linear-gradient(90deg, #0d6efd, #084298);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 20px 20px 5px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1100;
+}
+
+.topbar-logo {
+    position: center;
+    height: 50px;
+    filter: drop-shadow(1px 0 0 white) drop-shadow(-1px 0 0 white) drop-shadow(0 1px 0 white) drop-shadow(0 -1px 0 white);
+}
+
+.user-icon {
+    font-size: 1.8rem;
+    color: white;
+}
+
+.main-wrapper-vertical {
+    display: flex;
+    flex: 1;
+    margin-top: 70px;
+    min-height: calc(100vh - 70px);
+}
+
+.sidebar-vertical {
+    width: 260px;
+    background: linear-gradient(180deg, #0d6efd, #084298);
+    color: white;
+    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1), left 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s ease;
+    padding-top: 15px;
+    flex-shrink: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+    .sidebar-vertical.collapsed {
+        width: 75px;
     }
 
-        .navbar-modern .navbar-brand img:hover {
-            transform: scale(1.05);
-        }
+.sidebar-menu-vertical li a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
+    transition: background 0.25s ease, padding 0.25s ease, justify-content 0.25s ease;
+}
 
-    .navbar-modern .nav-link {
-        position: relative;
-        color: #1f2937 !important;
-        font-weight: 500;
-        padding: 0.6rem 1rem !important;
-        transition: color 0.2s ease;
-    }
+.sidebar-vertical.collapsed .sidebar-menu-vertical li a span {
+    display: none;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.2s ease;
+}
 
-        .navbar-modern .nav-link::after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            bottom: 4px;
-            width: 0%;
-            height: 2px;
-            background-color: #0d6efd;
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
+.sidebar-menu-vertical li a span {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.25s ease;
+}
 
-        .navbar-modern .nav-link:hover::after {
-            width: 60%;
-        }
+.sidebar-vertical.collapsed .sidebar-menu-vertical li a {
+    justify-content: center;
+    padding: 12px 0;
+}
 
-    .navbar-modern .user-icon {
-        background: #e8f0fe;
-        padding: 6px 10px;
-        border-radius: 50px;
-        color: #0d6efd;
-        font-size: 1.4rem;
-        transition: background 0.2s ease, transform 0.2s;
-    }
+.btn-hamburger {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.7rem;
+    padding: 10px 20px 25px;
+    cursor: pointer;
+    transition: transform 0.25s ease;
+}
 
-        .navbar-modern .user-icon:hover {
-            background: #d9e7ff;
-            transform: scale(1.05);
-        }
+.sidebar-menu-vertical {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
-    .navbar-modern .navbar-toggler {
-        border: none;
-        padding: 4px 8px;
-    }
-
-        .navbar-modern .navbar-toggler:focus {
-            box-shadow: none;
-        }
-
-    .navbar-modern .navbar-toggler-icon {
-        filter: brightness(0.4);
-    }
-
-.navbar .bi-person-circle {
-    color: #0d6efd;
+.sidebar-menu-vertical li a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
     transition: 0.2s;
 }
 
-    .navbar .bi-person-circle:hover {
-        color: #0b5ed7;
-    }
+.content-vertical {
+    transition: padding 0.3s ease;
+}
+
