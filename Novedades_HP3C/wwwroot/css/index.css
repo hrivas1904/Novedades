@@ -1,0 +1,88 @@
+﻿.pill-heading {
+    display: inline-block;
+    padding: 0.4rem 1.2rem;
+    background-color: #0d6efd; /* azul tipo primary */
+    color: #ffffff;
+    border-radius: 999px; /* forma de píldora */
+    font-size: 1.25rem; /* tamaño típico de h2 reducido */
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.navbar-modern {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.85) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    padding: 0.6rem 1rem;
+}
+
+    .navbar-modern .navbar-brand img {
+        transition: transform 0.2s ease;
+    }
+
+        .navbar-modern .navbar-brand img:hover {
+            transform: scale(1.05);
+        }
+
+    .navbar-modern .nav-link {
+        position: relative;
+        color: #1f2937 !important;
+        font-weight: 500;
+        padding: 0.6rem 1rem !important;
+        transition: color 0.2s ease;
+    }
+
+        .navbar-modern .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 4px;
+            width: 0%;
+            height: 2px;
+            background-color: #0d6efd;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .navbar-modern .nav-link:hover::after {
+            width: 60%;
+        }
+
+    .navbar-modern .user-icon {
+        background: #e8f0fe;
+        padding: 6px 10px;
+        border-radius: 50px;
+        color: #0d6efd;
+        font-size: 1.4rem;
+        transition: background 0.2s ease, transform 0.2s;
+    }
+
+        .navbar-modern .user-icon:hover {
+            background: #d9e7ff;
+            transform: scale(1.05);
+        }
+
+    .navbar-modern .navbar-toggler {
+        border: none;
+        padding: 4px 8px;
+    }
+
+        .navbar-modern .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+    .navbar-modern .navbar-toggler-icon {
+        filter: brightness(0.4);
+    }
+
+.navbar .bi-person-circle {
+    color: #0d6efd;
+    transition: 0.2s;
+}
+
+    .navbar .bi-person-circle:hover {
+        color: #0b5ed7;
+    }
