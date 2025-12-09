@@ -19,6 +19,10 @@ namespace Novedades_HP3C.Controllers
         {
             return View();
         }
+        public IActionResult Calendario()
+        {
+            return View();
+        }
 
         [HttpGet]
         public JsonResult ListaEmpleados()

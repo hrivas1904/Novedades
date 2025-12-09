@@ -132,3 +132,56 @@
     transition: padding 0.3s ease;
 }
 
+/* ----- SUBMENÚ ESTILOS ----- */
+.has-submenu .submenu-toggle {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
+    transition: background 0.25s ease;
+}
+
+    .has-submenu .submenu-toggle:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+/* Submenú */
+.submenu {
+    list-style: none;
+    padding-left: 45px; /* indentación */
+    margin: 0;
+}
+
+    .submenu li a {
+        display: block;
+        padding: 8px 0;
+        color: #e2e2e2;
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: color .25s ease;
+    }
+
+        .submenu li a:hover {
+            color: #ffffff;
+        }
+
+/* Chevron animado */
+.chevron {
+    transition: transform .25s ease;
+}
+
+.submenu-toggle[aria-expanded="true"] .chevron {
+    transform: rotate(180deg);
+}
+
+/* ----- COMPATIBILIDAD CON SIDEBAR COLAPSADO ----- */
+.sidebar-vertical.collapsed .submenu {
+    display: none !important;
+}
+
+.sidebar-vertical.collapsed .chevron {
+    display: none;
+}
