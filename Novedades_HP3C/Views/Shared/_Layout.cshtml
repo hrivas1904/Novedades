@@ -71,12 +71,21 @@
                         </ul>
                     </li>
 
-                    <li>
-                        <a asp-controller="Personal" asp-action="Personal">
-                            <i class="bi bi-people-fill"></i>
+                    <li class="has-submenu">
+                        <a class="submenu-toggle" data-bs-toggle="collapse" href="#submenuPersonal"
+                           role="button" aria-expanded="false" aria-controls="submenuNovedades">
+                            <i class="bi bi-people"></i>
                             <span>Personal</span>
+                            <i class="bi bi-chevron-down ms-auto chevron"></i>
                         </a>
+
+                        <ul class="collapse submenu" id="submenuPersonal">
+                            <li><a asp-controller="Personal" asp-action="Personal">Nómina de personal</a></li>
+                            <li><a asp-controller="Novedades" asp-action="Asiste">Calendario</a></li>
+                            <li><a asp-controller="Novedades" asp-action="Asiste">Asistencia</a></li>
+                        </ul>
                     </li>
+
                     <li>
                         <a asp-controller="Home" asp-action="Index">
                             <i class="bi bi-speedometer2"></i>
