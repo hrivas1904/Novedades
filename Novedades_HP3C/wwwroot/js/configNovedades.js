@@ -1,0 +1,1 @@
+﻿new datatable('#tb_novedades');

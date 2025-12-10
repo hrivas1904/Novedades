@@ -6,6 +6,8 @@
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.5/css/dataTables.dataTables.css">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Novedades_HP3C.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/index.css" />
@@ -65,9 +67,9 @@
                         </a>
 
                         <ul class="collapse submenu" id="submenuNovedades">
-                            <li><a asp-controller="Novedades" asp-action="ConfigNovedades">Configuración</a></li>
-                            <li><a asp-controller="Novedades" asp-action="CargaNovedades">Carga</a></li>
-                            <li><a asp-controller="Novedades" asp-action="ControlNovedades">Control</a></li>
+                            <li><a asp-controller="Novedades" asp-action="ConfigNovedades">Configurar novedades</a></li>
+                            <li><a asp-controller="Novedades" asp-action="CargaNovedades">Registrar novedades</a></li>
+                            <li><a asp-controller="Novedades" asp-action="ControlNovedades">Control novedades</a></li>
                         </ul>
                     </li>
 
@@ -81,8 +83,8 @@
 
                         <ul class="collapse submenu" id="submenuPersonal">
                             <li><a asp-controller="Personal" asp-action="Personal">Nómina de personal</a></li>
-                            <li><a asp-controller="Novedades" asp-action="Asiste">Calendario</a></li>
-                            <li><a asp-controller="Novedades" asp-action="Asiste">Asistencia</a></li>
+                            <li><a asp-controller="Novedades" asp-action="Asiste">Calendario del personal</a></li>
+                            <li><a asp-controller="Novedades" asp-action="Asiste">Registro de asistencia</a></li>
                         </ul>
                     </li>
 
@@ -111,5 +113,11 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/2.3.5/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.3.5/js/dataTables.bootstrap5.js"></script>
+
 </body>
 </html>
