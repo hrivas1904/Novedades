@@ -30,3 +30,9 @@
     .section-divider:not(:empty)::after {
         margin-left: .75rem;
     }
+
+.empleado-box {
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    padding: 10px;
+}
