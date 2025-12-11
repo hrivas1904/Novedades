@@ -23,5 +23,6 @@
         public decimal horasDiarias { get; set; }
         public string convenio { get; set; }
         public string rolSistema { get; set; }
+        public string estado { get; set; }
     }
 }

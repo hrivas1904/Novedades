@@ -28,6 +28,7 @@ $(document).ready(function () {
             { "data": "horasDiarias" },
             { "data": "convenio" },
             { "data": "telefono" },
+            { "data": "estado" },
             {
                 "data": "id_emp",
                 "render": function (data) {

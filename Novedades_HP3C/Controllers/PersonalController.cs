@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System.Data;
-using Microsoft.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace Novedades_HP3C.Controllers
 {
@@ -29,10 +29,10 @@ namespace Novedades_HP3C.Controllers
         {
             List<Empleados> lista = new List<Empleados>();
 
-            using (var conexion = new SqlConnection(cadenaSQL))
+            using (var conexion = new MySqlConnection(cadenaSQL))
             {
                 conexion.Open();
-                var cmd = new SqlCommand("SP_LISTA_EMPLEADOS", conexion);
+                var cmd = new MySqlCommand("SP_LISTA_EMPLEADOS", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 using (var dr = cmd.ExecuteReader())
@@ -41,19 +41,20 @@ namespace Novedades_HP3C.Controllers
                     {
                         lista.Add(new Empleados
                         {
-                            numeroLegajo = Convert.ToInt32(dr["numero_legajo"]),
-                            nombreCompleto = dr["nombre_completo"].ToString(),
-                            dni = dr["dni"].ToString(),
-                            cuil = dr["cuil"].ToString(),
-                            fechaIngreso = Convert.ToDateTime(dr["fecha_ingreso"]),
-                            antiguedad = Convert.ToDecimal(dr["antiguedad"]),
-                            area = dr["area"].ToString(),
-                            categoria = dr["categoria"].ToString(),
-                            servicio = dr["servicio"].ToString(),
-                            regimen = Convert.ToInt32(dr["regimen"]),
-                            horasDiarias = Convert.ToDecimal(dr["horas_diarias"]),
-                            convenio = dr["convenio"].ToString(),
-                            telefono = dr["telefono"].ToString()
+                            numeroLegajo = Convert.ToInt32(dr["LEGAJO"]),
+                            nombreCompleto = dr["NOMBRE"].ToString(),
+                            dni = dr["DNI"].ToString(),
+                            cuil = dr["CUIL"].ToString(),
+                            fechaIngreso = Convert.ToDateTime(dr["FECHA_INGRESO"]),
+                            antiguedad = Convert.ToDecimal(dr["ANTIGUEDAD"]),
+                            area = dr["AREA"].ToString(),
+                            categoria = dr["CATEGORIA"].ToString(),
+                            servicio = dr["SERVICIO"].ToString(),
+                            regimen = Convert.ToInt32(dr["REGIMEN"]),
+                            horasDiarias = Convert.ToDecimal(dr["HORAS_DIARIAS"]),
+                            convenio = dr["CONVENIO"].ToString(),
+                            telefono = dr["TELEFONO"].ToString(),
+                            estado = dr["ESTADO"].ToString()
                         });
                     }
                 }
