@@ -1,6 +1,6 @@
 ﻿//carga de datatable
 $(document).ready(function () {
-    $('#tb_empleados').DataTable({
+    $('#tb_personal').DataTable({
         "ajax": {
             "url": "/Personal/ListaEmpleados",
             "type": "GET",

@@ -14,12 +14,19 @@ namespace Novedades_HP3C.Controllers
         {
             cadenaSQL = config.GetConnectionString("CadenaSQL");
         }
-
         public IActionResult Personal()
         {
             return View();
         }
         public IActionResult Calendario()
+        {
+            return View();
+        }
+        public IActionResult ControlAsistencia()
+        {
+            return View();
+        }
+        public IActionResult RegistroAsistencia()
         {
             return View();
         }
