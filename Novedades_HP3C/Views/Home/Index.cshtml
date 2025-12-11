@@ -2,11 +2,223 @@
     ViewData["Title"] = "DASHBOARD";
 }
 
-<div class="d-flex">
-    <div class="d-flex container justify-content-center">
-        <h2 class="text-center pill-heading">Dashboard Gerencial</h2>
+<div class="container-fluid dashboard-container py-3">
+
+    <div class="row mb-3">
+        <div class="col-12">
+            <div class="card filter-card">
+                <div class="card-body">
+                    <div class="row g-3 align-items-end">
+                        <div class="col-md-3">
+                            <label class="form-label">Desde</label>
+                            <input type="date" id="filtroDesde" class="form-control" />
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Hasta</label>
+                            <input type="date" id="filtroHasta" class="form-control" />
+                        </div>
+                        <div class="col-md-3 d-flex gap-2">
+                            <button id="btnAplicarFiltros" class="btn btn-primary flex-grow-1">
+                                Aplicar filtros
+                            </button>
+                            <button id="btnLimpiarFiltros" class="btn btn-outline-light flex-grow-1">
+                                Limpiar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="d-flex p-4">
+
+    <div class="row g-3 mb-3">
+
+        <div class="col-xl-2 col-lg-4 col-md-4 col-6">
+            <div class="card kpi-card">
+                <div class="card-body">
+                    <div class="kpi-label">Empleados activos</div>
+                    <div id="kpiEmpleadosActivos" class="kpi-value">0</div>
+                    <div id="kpiEmpleadosActivosDetalle" class="kpi-subvalue">—</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-2 col-lg-4 col-md-4 col-6">
+            <div class="card kpi-card">
+                <div class="card-body">
+                    <div class="kpi-label">Empleados de baja</div>
+                    <div id="kpiEmpleadosBaja" class="kpi-value">0</div>
+                    <div id="kpiEmpleadosBajaDetalle" class="kpi-subvalue">—</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-2 col-lg-4 col-md-4 col-6">
+            <div class="card kpi-card">
+                <div class="card-body">
+                    <div class="kpi-label">Total novedades</div>
+                    <div id="kpiTotalNovedades" class="kpi-value">0</div>
+                    <div id="kpiTotalNovedadesDetalle" class="kpi-subvalue">—</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-2 col-lg-4 col-md-4 col-6">
+            <div class="card kpi-card">
+                <div class="card-body">
+                    <div class="kpi-label">Novedades mes actual</div>
+                    <div id="kpiNovedadesMes" class="kpi-value">0</div>
+                    <div id="kpiNovedadesMesDetalle" class="kpi-subvalue">—</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-2 col-lg-4 col-md-4 col-6">
+            <div class="card kpi-card">
+                <div class="card-body">
+                    <div class="kpi-label">Más frecuente</div>
+                    <div id="kpiNovedadMasFrecuente" class="kpi-value-small">—</div>
+                    <div id="kpiNovedadMasFrecuenteCantidad" class="kpi-subvalue">—</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-2 col-lg-4 col-md-4 col-6">
+            <div class="card kpi-card">
+                <div class="card-body">
+                    <div class="kpi-label">Menos frecuente</div>
+                    <div id="kpiNovedadMenosFrecuente" class="kpi-value-small">—</div>
+                    <div id="kpiNovedadMenosFrecuenteCantidad" class="kpi-subvalue">—</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-2 col-lg-4 col-md-4 col-6">
+            <div class="card kpi-card">
+                <div class="card-body">
+                    <div class="kpi-label">Área con más novedades</div>
+                    <div id="kpiAreaMasNovedades" class="kpi-value-small">—</div>
+                    <div id="kpiAreaMasNovedadesDetalle" class="kpi-subvalue">—</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-2 col-lg-4 col-md-4 col-6">
+            <div class="card kpi-card">
+                <div class="card-body">
+                    <div class="kpi-label">Área con menos novedades</div>
+                    <div id="kpiAreaMenosNovedades" class="kpi-value-small">—</div>
+                    <div id="kpiAreaMenosNovedadesDetalle" class="kpi-subvalue">—</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row g-3 mb-3">
+
+        <div class="col-xl-4 col-lg-6">
+            <div class="card chart-card">
+                <div class="card-header">
+                    <span class="chart-title">Novedades por tipo</span>
+                </div>
+                <div class="card-body">
+                    <canvas id="chartNovedadesTipo"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-4 col-lg-6">
+            <div class="card chart-card">
+                <div class="card-header">
+                    <span class="chart-title">Novedades por mes</span>
+                </div>
+                <div class="card-body">
+                    <canvas id="chartNovedadesMes"></canvas>
+                    <div class="mt-2 small text-muted">
+                        Mes con más novedades: <span id="lblMesMaxNovedades">—</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-4 col-lg-6">
+            <div class="card chart-card">
+                <div class="card-header">
+                    <span class="chart-title">Empleados con más novedades</span>
+                </div>
+                <div class="card-body">
+                    <canvas id="chartTopEmpleados"></canvas>
+                    <div class="mt-2 small text-muted">
+                        Empleado con más novedades: <span id="lblEmpleadoTop">—</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-4 col-lg-6">
+            <div class="card chart-card">
+                <div class="card-header">
+                    <span class="chart-title">Novedades por Área</span>
+                </div>
+                <div class="card-body">
+                    <canvas id="chartNovedadesAreas"></canvas>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row g-3 mb-3">
+
+        <div class="col-xl-7">
+            <div class="card table-card">
+                <div class="card-header">
+                    <span class="chart-title">Detalle por tipo</span>
+                </div>
+                <div class="card-body table-responsive">
+                    <table id="tblNovedadesTipo" class="table table-sm align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th>Tipo</th>
+                                <th>Categoría</th>
+                                <th>Cantidad</th>
+                                <th>%</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-5">
+            <div class="card table-card">
+                <div class="card-header">
+                    <span class="chart-title">Detalle por Área</span>
+                </div>
+                <div class="card-body table-responsive">
+                    <table id="tblNovedadesArea" class="table table-sm align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th>Área</th>
+                                <th>Cantidad</th>
+                                <th>%</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 </div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="~/js/dashboard-novedades.js"></script>
+}
+
+<link rel="stylesheet" href="~/css/dashboard-novedades.css" />
