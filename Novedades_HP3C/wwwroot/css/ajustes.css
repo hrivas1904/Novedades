@@ -1,0 +1,51 @@
+﻿.ajustes-simple {
+    padding: 20px;
+    background: #f5f7fb;
+    min-height: 100vh;
+}
+
+.ajustes-title {
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.ajustes-subtitle {
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+.ajustes-card {
+    border: none;
+    border-radius: 14px;
+    background: #ffffff;
+    
+}
+
+    .ajustes-card .card-header {
+        background: transparent;
+        border-bottom: 1px solid #e5e7eb;
+        font-weight: 600;
+        font-size: 0.9rem;
+        padding: 14px 18px;
+        color: #111827;
+    }
+
+    .ajustes-card .card-body {
+        padding: 18px;
+    }
+
+.form-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #374151;
+}
+
+.form-control,
+.form-select {
+    font-size: 0.85rem;
+    border-radius: 10px;
+}
+
+.card{
+    border-radius: 20px;
+}
