@@ -2,6 +2,10 @@
     inicializarCronograma();
 });
 
+new datatable('#tb_cronograma', {
+    screenX: true
+});
+
 function inicializarCronograma() {
     const filas = document.querySelectorAll(".cronograma-table tbody tr");
 
